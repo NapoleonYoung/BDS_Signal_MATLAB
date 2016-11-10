@@ -45,5 +45,26 @@ signal = sampledSignalCATable .* carrySignal;
 %subplot(3, 1, 3);
 %plot(signal);%含有载波与C/A码的信号
 
+%-----创建含有数据的载波、C/A码信号数据
+%dataCASignal：含有数据、载波、C/A码
+%其中，数据为1， -1，每20ms变一次
+
+fid = fopen('dataCASignal.bin', 'wb');
+for j = 1 : 500
+    if (mod(j, 2))
+        for i = 1 : 20
+            dataCASignal = 1 * signal;
+            fwrite(fid, dataCASignal, 'int8');
+        end
+    else
+        for i = 1 : 20
+            dataCASignal = -1 * signal;
+            fwrite(fid, dataCASignal, 'int8');
+        end
+    end
+end
+
+fclose(fid);
+
 
 

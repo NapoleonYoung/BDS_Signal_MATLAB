@@ -8,7 +8,7 @@ BDS_Signal_MATLAB
 
 - generareCACode.m：北斗C/A码发生器
 - makeSampledCATable.m：对C/A码进行采样
-- main.m：创建含有载波与C/A码的信号，工程主函数
+- main.m：创建含有数据、载波与C/A码的信号，工程主函数，其中，数据为1，－1，每20ms变一次，一共持续10s
 
 验证函数
 
