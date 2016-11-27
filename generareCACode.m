@@ -3,7 +3,7 @@ function [ caCode ] = generareCACode( PRN )
 %   Detailed explanation goes here
 
 %北斗C/A码发生器
-%产生北斗1号卫星的伪随机码
+%产生北斗1号卫星的伪随机码，共37颗
 idSatelite = [1,3; 1,4; 1,5; 1,6; 1,8; 1,9; 1,10; 1,11; %8颗
               2,7;                                      %1颗
               3,4; 3,5; 3,6; 3,8; 3,9; 3,10; 3,11;      %7颗
@@ -18,7 +18,7 @@ idSatelite = [1,3; 1,4; 1,5; 1,6; 1,8; 1,9; 1,10; 1,11; %8颗
 
 %G1序列线性移位反馈器初始值01010101010
 regOfG1=[1,-1,1,-1,1,-1,1,-1,1,-1,1];
-for i=1:2047;
+for i=1:2046;
     g1(i)=regOfG1(11);
     firstBitofG1=regOfG1(1)*regOfG1(7)*regOfG1(8)*regOfG1(9)*regOfG1(10)*regOfG1(11);
     regOfG1(2:11)=regOfG1(1:10);
@@ -26,7 +26,7 @@ for i=1:2047;
 end
 %G2发生器
 regOfG2=[1,-1,1,-1,1,-1,1,-1,1,-1,1];
-for j=1:2047;
+for j=1:2046;
     g2Oup(j) = regOfG2(idSatelite(PRN, 1)) * regOfG2(idSatelite(PRN, 2));
     firstBit=regOfG2(1)*regOfG2(2)*regOfG2(3)*regOfG2(4)*regOfG2(5)*regOfG2(8)*regOfG2(9)*regOfG2(11);
     regOfG2(2:11)=regOfG2(1:10);
