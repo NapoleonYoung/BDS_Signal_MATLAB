@@ -2,7 +2,7 @@ BDS_Signal_MATLAB
 
 北斗基带信号MATLAB仿真代码
 
-说明
+### 工程文件说明
 
 工程函数
 
@@ -14,3 +14,8 @@ BDS_Signal_MATLAB
 
 - BDS_CaOutput_binary.m：根据输入的卫星号产生北斗基带信号C/A码
 - digitalCA.m：采样C/A码，即数字化C/A码表
+
+### 版本说明
+
+- v1.06:产生正常北斗信号、延迟的北斗信号（多路径信号）
+- v1.05:产生北斗信号
